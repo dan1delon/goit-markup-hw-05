@@ -518,10 +518,13 @@ height: 24px;
 fill: #f4f4fd;
 }
 
+.footer-form-wrap {
+    margin-left: auto;
+}
+
 .footer-form {
     display: flex;
     align-items: flex-end;
-    margin-left: auto;
     gap: 24px;
 }
 
@@ -549,6 +552,7 @@ fill: #f4f4fd;
     background-color: transparent;
     padding: 8px 16px;
     outline: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 }
 
 .input-footer::placeholder {
@@ -559,14 +563,16 @@ fill: #f4f4fd;
 }
 
 .footer-input-btn {
+min-width: 165px;
+height: 40px;
 display: flex;
 justify-content: center;
 align-items: center;
 padding: 8px 24px;
-gap: 16px;
 border-radius: 4px;
 background: var(--IRIS, #4D5AE5);
 color: var(--WHITE, #FFF);
+font-family: Roboto, sans-serif;
 text-align: center;
 font-size: 16px;
 font-weight: 500;
@@ -576,6 +582,10 @@ border: none;
 fill: #FFFFFF;
 cursor: pointer;
 transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sub-icon {
+    margin-left: 16px;
 }
 
 .footer-input-btn:hover, .footer-input-btn:focus, .footer-input-btn:active {
@@ -595,7 +605,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1), pointer-events 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-open {
@@ -615,30 +625,45 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
     border-radius: 4px;
     background: var(--DAIRY, #FCFCFC);
-    padding: 24px;
+    padding: 72px 24px 24px 24px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .x-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    padding: 0;
     width: 24px;
     height: 24px;
+    cursor: pointer;
     background-color: var(--CORNFLOWER, #E7E9FC);
     stroke-width: 1px;
     stroke: rgba(0, 0, 0, 0.10);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
     border: 1px solid #0000001A;
     border-radius: 50%;
     margin-bottom: 24px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     fill: #2E2F42;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 50ms cubic-bezier(0.4, 0, 0.2, 1), border 50ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.x-btn-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .x-btn:active, .x-btn:hover, .x-btn:focus {
     background-color: #404BBF;
     border: none;
-    fill: #F4F4FD;
+}
+
+.x-btn:active,
+.x-btn:hover,
+.x-btn:focus .x-btn-icon{
+fill: #FFFFFF;
 }
 
 .modal-header {
@@ -656,7 +681,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 .input-wrap {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    margin-bottom: 8px;
 }
 
 .lable-text {
@@ -670,7 +695,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-form {
-    width: 360px;
+    width: 100%;
     height: 40px;
     flex-shrink: 0;
     border-radius: 4px;
@@ -678,7 +703,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     background-color: transparent;
     padding: 11px;
     padding-left: 38px;
-    outline: none;
+    outline: transparent;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 
 }
@@ -700,22 +725,27 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 .input-icon {
     fill: #2E2F42;
     position: absolute;
-    margin-left: 22px;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-field {
+    margin-bottom: 16px;
+}
+
 .textarea-field {
-    width: 360px;
+    width: 100%;
     height: 120px;
     flex-shrink: 0;
     border-radius: 4px;
     border: 1px solid var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
     background-color: transparent;
     padding: 8px 16px;
-    outline: none;
+    outline: transparent;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     resize: none;
-    margin-bottom: 16px;
 }
 
 .textarea-field:focus {
@@ -729,14 +759,11 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     letter-spacing: 0.04em;
 }
 
-.btn-modal-wrap {
-    display: flex;
-    justify-content: center;
-}
-
 .submit-btn {
-    margin-top: 24px;
-    width: 169px;
+    display: block;
+    margin: 0 auto;
+    min-width: 169px;
+    height: 56px;
     padding: 16px 32px;
     border-radius: 4px;
     border: none;
@@ -745,6 +772,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     color: var(--WHITE, #FFF);
     text-align: center;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 1.5;
@@ -762,13 +790,26 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 24px;
 }
 
 .modal-checkbox {
     margin: 0;
 }
 
+
 .modal-checkbox-box {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    border: 1px solid var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
+    margin-right: 8px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -796,19 +837,5 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 .policy-text:hover {
     color: #404BBF;
-}
-
-.modal-checkbox-box {
-    display: block;
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    border: 1px solid var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    fill: transparent;
-    margin-right: 8px;
 }
 
